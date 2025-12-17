@@ -1,8 +1,7 @@
-package main.java.parking.proyectoada_ud6.entities;
+package parking.proyectoada_ud6.entities;
 
 import com.fasterxml.jackson.annotation.*;
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -20,16 +19,13 @@ public class Reserva {
     @Column(name = "id_reserva")
     private Long idReserva;
 
-    @NotNull(message = "La fecha es obligatoria")
-    @Column(name = "fecha_res")
+    @Column(name = "fecha_res", nullable = false)
     private LocalDate fechaRes;
 
-    @NotNull(message = "La hora de inicio es obligatoria")
-    @Column(name = "hora_ini")
+    @Column(name = "hora_ini", nullable = false)
     private LocalTime horaIni;
 
-    @NotNull(message = "La hora de fin es obligatoria")
-    @Column(name = "hora_fin")
+    @Column(name = "hora_fin", nullable = false)
     private LocalTime horaFin;
 
     @Column(name = "es_vip")

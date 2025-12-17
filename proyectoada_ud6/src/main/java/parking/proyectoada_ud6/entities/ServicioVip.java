@@ -1,8 +1,6 @@
-package main.java.parking.proyectoada_ud6.entities;
+package parking.proyectoada_ud6.entities;
 
-import com.fasterxml.jackson.annotation.*;
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -14,17 +12,12 @@ public class ServicioVip {
     @Column(name = "id_servicio")
     private Long idServicio;
 
-    @NotBlank(message = "El nombre del servicio es obligatorio")
-    @Size(max = 100, message = "El nombre no puede tener más de 100 caracteres")
-    @Column(name = "nombre_serv")
+    @Column(name = "nombre_serv", nullable = false)
     private String nombreServ;
 
-    @Size(max = 500, message = "La descripción no puede tener más de 500 caracteres")
     private String descr;
 
-    @NotNull(message = "El precio es obligatorio")
-    @DecimalMin(value = "0.0", inclusive = false, message = "El precio debe ser mayor que 0")
-    @Column(precision = 10, scale = 2)
+    @Column(precision = 10, scale = 2, nullable = false)
     private BigDecimal precio;
 
     private Boolean activo = true;

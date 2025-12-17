@@ -1,8 +1,7 @@
-package main.java.parking.proyectoada_ud6.entities;
+package parking.proyectoada_ud6.entities;
 
 import com.fasterxml.jackson.annotation.*;
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +16,6 @@ public class Plaza {
     @Column(name = "id_plaza")
     private Long idPlaza;
 
-    @NotBlank(message = "El número de plaza es obligatorio")
-    @Size(max = 10, message = "El número de plaza no puede tener más de 10 caracteres")
     @Column(name = "numero_plaza", unique = true)
     private String numeroPlaza;
 

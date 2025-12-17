@@ -1,4 +1,4 @@
-package main.java.parking.proyectoada_ud6.repositories;
+package parking.proyectoada_ud6.repositories;
 
 public class ReservaRepository {
     
