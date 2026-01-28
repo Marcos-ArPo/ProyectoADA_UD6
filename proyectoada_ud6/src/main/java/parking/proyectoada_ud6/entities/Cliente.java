@@ -8,7 +8,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "clientes")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idCliente")
 public class Cliente {
 
     @Id
@@ -34,8 +33,7 @@ public class Cliente {
     private LocalDateTime fechaRegistro = LocalDateTime.now();
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference
-    @JsonIgnoreProperties({ "cliente" })
+    @JsonIgnore
     private List<Reserva> reservas = new ArrayList<>();
 
     // Enums

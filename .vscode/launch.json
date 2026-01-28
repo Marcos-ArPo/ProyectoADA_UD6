@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProyectoadaUd6Application<proyectoada_ud6>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "parking.proyectoada_ud6.ProyectoadaUd6Application",
+            "projectName": "proyectoada_ud6",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

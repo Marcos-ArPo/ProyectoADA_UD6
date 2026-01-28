@@ -11,7 +11,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "reservas")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idReserva")
 public class Reserva {
 
     @Id
@@ -48,6 +47,7 @@ public class Reserva {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_plaza")
+    @JsonBackReference("plaza-reservas")
     @JsonIgnoreProperties({ "reservas" })
     private Plaza plaza;
 
@@ -72,7 +72,9 @@ public class Reserva {
         this.horaFin = horaFin;
         this.cliente = cliente;
         this.plaza = plaza;
-        this.esVip = plaza.getTipo() == Plaza.TipoPlaza.VIP;
+        if (plaza != null) {
+            this.esVip = plaza.getTipo() == Plaza.TipoPlaza.VIP;
+        }
     }
 
     // Getters y Setters
@@ -154,6 +156,9 @@ public class Reserva {
 
     public void setPlaza(Plaza plaza) {
         this.plaza = plaza;
+        if (plaza != null) {
+            this.esVip = plaza.getTipo() == Plaza.TipoPlaza.VIP;
+        }
     }
 
     public List<ReservaServicio> getServiciosContratados() {
